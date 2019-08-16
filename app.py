@@ -25,7 +25,7 @@ def auth0():
         access_token = auth_response.json()["access_token"]
         headers = {'Authorization': 'Bearer '+access_token}
         me = requests.get("https://api.spotify.com/v1/me/following?type=artist", headers=headers)
-        return(me.json()))
+        return me.json()
 
     else:
         return request.args.get('error')
