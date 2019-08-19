@@ -8,8 +8,8 @@ app = Flask(__name__)
 app.secret_key = os.environ["FLASK_SECRET_KEY"] # used to encrypt cookies
 sp_id = os.environ["SP_CLIENT_ID"] # used to get spotify auth code and access tokens
 sp_secret = os.environ["SP_CLIENT_SECRET"] # used to get spotify access tokens
-redirect_uri = "http://localhost:5000/callback"
-#redirect_uri = "https://newalbums.herokuapp.com/callback"
+#redirect_uri = "http://localhost:5000/callback"
+redirect_uri = "https://newalbums.herokuapp.com/callback"
 
 @app.route('/')
 def index():
