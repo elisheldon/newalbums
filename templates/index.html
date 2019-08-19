@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div id="content">
+        <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" alt="Loading spinner" height="40">
+        Loading the newest albums from artists you follow on Spotify...
+    
+</div>
+<script>
+    $(function () { 
+        $("#content").load("/load"); 
+    });
+</script>
+{% endblock %}

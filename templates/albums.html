@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Aritst</th>
+      <th scope="col">Newest album</th>
+      <th scope="col">Released</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for artist in artists %}
+    <tr>
+        <th scope="row"><img src={{ artist["images"][-1]["url"] }} alt='{{ artist["name"] }}'' height="40" width="40"> {{ artist["name"] }}</th>
+        <td><a href={{ artist["newest_album"]["external_urls"]["spotify"] }}> <img src={{ artist["newest_album"]["images"][-1]["url"] }} alt='{{ artist["newest_album"]["name"] }} album cover' height="40" width="40"> {{ artist["newest_album"]["name"] }}</a></td>
+        <td>{{ artist["newest_album"]["release_date"] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
