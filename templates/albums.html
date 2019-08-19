@@ -13,7 +13,7 @@
     {% for artist in artists %}
     <tr>
         <th scope="row"><img src={{ artist["images"][-1]["url"] }} alt='{{ artist["name"] }}'' height="40" width="40"> {{ artist["name"] }}</th>
-        <td><a href={% if "external_urls" in artist["newest_album"] %}{{ artist["newest_album"]["external_urls"]["spotify"] }}{% endif %}> <img src={{ artist["newest_album"]["images"][-1]["url"] }} alt='{{ artist["newest_album"]["name"] }} album cover' height="40" width="40"> {{ artist["newest_album"]["name"] }}</a></td>
+        <td><a href={% if "external_urls" in artist["newest_album"] %}{{ artist["newest_album"]["external_urls"]["spotify"] }}{% endif %}> {% if "images" in artist["newest_album"] %}<img src={{ artist["newest_album"]["images"][-1]["url"] }} alt='{{ artist["newest_album"]["name"] }} album cover' height="40" width="40">{% endif %} {% if "name" in artist["newest_album"] %}{{ artist["newest_album"]["name"] }}{% endif %}</a></td>
         <td>{{ artist["newest_album"]["release_date"] }}</td>
     </tr>
     {% endfor %}
